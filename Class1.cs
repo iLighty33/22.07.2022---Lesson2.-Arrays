@@ -40,12 +40,30 @@ namespace _22._07._2022___Lesson2._Arrays
             Age = age;
         }
 
+        public static int EnterAge(string text)
+        {
+
+            try
+            {
+                Console.Write(text);
+                return int.Parse(Console.ReadLine());
+            }
+            catch (Exception)
+            {
+                Console.Write("Вы ввели что-то не то, попробуйте заново\n");
+
+                return EnterAge(text);
+            }
+        }
+
         public Uchastniki(int id)
         {
             Id = id;
             Name = Vvod("Введите ФИО участника: ");
             Age = Vvod_age("Введите возраст участника: ");
         }
+
+       
 
         public int Id { get; set; }
         public string Name { get; set; }

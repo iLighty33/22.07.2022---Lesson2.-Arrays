@@ -29,16 +29,24 @@ namespace _22._07._2022___Lesson2._Arrays
             }
 
             Console.WriteLine("[1] Добавить участника");
-                switch (Console.ReadLine())
+            Console.WriteLine("[2] Удалить участника");
+            switch (Console.ReadLine())
                 {
                     case "1":
                         {
-                        uchastniki.Add(new Uchastniki(uchastniki.Count));
+                        uchastniki.Add(new Uchastniki(uchastniki.Count + 1));
                         /*Array.Resize(ref uchastniki, uchastniki.Length + 1);
                         uchastniki[uchastniki.Length - 1] = new Uchastniki(uchastniki.Length);*/
                         vyvod();
                             break;
                         }
+                case "2":
+                    {
+                       vyvod();
+                       uchastniki.RemoveAt(Uchastniki.EnterAge("Введите ID: ") - 1);
+                       vyvod();
+                       break;
+                    }
                     default:
                         {
                             Console.WriteLine();
