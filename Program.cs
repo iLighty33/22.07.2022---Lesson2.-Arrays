@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+
 
 namespace _22._07._2022___Lesson2._Arrays
 {
@@ -30,30 +32,53 @@ namespace _22._07._2022___Lesson2._Arrays
 
             Console.WriteLine("[1] Добавить участника");
             Console.WriteLine("[2] Удалить участника");
+            Console.WriteLine("[3] Изменить возраст");
+            Console.WriteLine("[4] Изменить ФИО");
             switch (Console.ReadLine())
                 {
                     case "1":
                         {
                         uchastniki.Add(new Uchastniki(uchastniki.Count + 1));
-                        /*Array.Resize(ref uchastniki, uchastniki.Length + 1);
-                        uchastniki[uchastniki.Length - 1] = new Uchastniki(uchastniki.Length);*/
+                        Console.WriteLine();
                         vyvod();
-                            break;
+                        break;
                         }
                 case "2":
                     {
                        vyvod();
+                       Console.WriteLine("Введите ID участника: ");
                        uchastniki.RemoveAt(Uchastniki.EnterAge("Введите ID: ") - 1);
                        vyvod();
                        break;
+                    }
+                case "3":
+                    {
+                        vyvod();
+                        Console.WriteLine("Введите ID участника: ");
+                        int age = int.Parse(Console.ReadLine()) - 1;
+                        Console.WriteLine("Введите новый возраст: ");
+                        uchastniki.ElementAt(age).Age = int.Parse(Console.ReadLine());
+                        Console.WriteLine();
+                        vyvod();
+                        break;
+                    }
+                case "4":
+                    {
+                        vyvod();
+                        Console.WriteLine("Введите ID участника: ");
+                        int name = int.Parse(Console.ReadLine()) - 1;
+                        Console.WriteLine("Введите новое ФИО: ");
+                        uchastniki.ElementAt(name).Name = String.Format(Console.ReadLine());
+                        Console.WriteLine();
+                        vyvod();
+                        break;
                     }
                     default:
                         {
                             Console.WriteLine();
                             break;
                         }
-                }
-            
+            }
         }
     }
 }
